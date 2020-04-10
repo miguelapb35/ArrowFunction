@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  
+  <title>Arrow Functions</title>
+</head>
+<body>
+  <div class="container text-flow">
+    <div class="row">
+      <div class="col s12 text-align-center">
+        <h1>JavaScript Arrow Functions</h1>
+      </div>
+    </div>
+  </div>
+  <div class="container text-flow">
+    <div class="row">
+      <div class="col s12 text-align-center">
+        <h2>About Syntax</h2>
+      </div>      
+      <div class="col s12 m6 xl4">
+        <h4>2 parameters</h4>
+          <ul class="collection">
+            <li class="collection-item">// Old Syntax</li>
+            <li class="collection-item">
+            <pre>
+function sum(a, b) {
+  return a + b
+} 
+              </pre>
+            </li>
+            <li class="collection-item">// Arrow Function</li>
+            <li class="collection-item">
+            <pre>
+let sum = (a, b) => {
+  return a + b
+} 
+              </pre>
+            </li>
+            <li class="collection-item">// When 1 line of code remove return and brackets</li>
+            <li class="collection-item">
+            <small>
+            <pre>
+let sum = (a, b) =>  a + b
+              </pre>
+            </small>
+            </li>
+          </ul>
+      </div>
+      <div class="col s12 m6 xl4">
+        <h4>1 parameters</h4>
+          <ul class="collection">
+            <li class="collection-item">// Old Syntax</li>
+            <li class="collection-item">
+            <pre>
+function positive(number) {
+  return number >= 0
+}
+              </pre>
+            </li>
+            <li class="collection-item">// Arrow Function</li>
+            <li class="collection-item">
+            <pre>
+let positive = (number) => {
+  return number >= 0
+}
+              </pre>
+            </li>
+            <li class="collection-item">// When 1 line of code remove return and brackets</li>
+            <li class="collection-item">// and if only 1 parameter, remove parenthesis</li>
+            <li class="collection-item">
+            <small>
+            <pre>
+let positive = number => number >= 0
+              </pre>
+            </small>  
+            </li>
+          </ul>
+      </div>
+      <div class="col s12 m12 xl4">
+        <h4>No parameters</h4>
+          <ul class="collection">
+            <li class="collection-item">// Old Syntax</li>
+            <li class="collection-item">
+            <pre>
+function randomNumber() {
+  return Math.random
+}
+              </pre>
+            </li>
+            <li class="collection-item">// Arrow Function</li>
+            <li class="collection-item">
+            <pre>
+let randomNumber = () => {
+  return Math.random
+}
+              </pre>
+            </li>
+            <li class="collection-item">// reduce to 1 line</li>
+            <li class="collection-item">
+            <small>
+            <pre>
+let randomNumber = () => Math.random
+              </pre>
+            </small>
+            </li>
+          </ul>
+      </div>
+    
+      <div class="col s12 m12 xl12">
+        <h4>Anonymous Function</h4>
+          <ul class="collection">
+            <li class="collection-item">// Old Syntax</li>
+            <li class="collection-item">
+            <pre>
+document.addEventListener('click', function () {
+  console.log('Click')
+})
+              </pre>
+            </li>
+            <li class="collection-item">// Arrow Function</li>
+            <li class="collection-item">
+            <pre>
+document.addEventListener('click', () => {
+  console.log('Click')
+})
+              </pre>
+            </li>
+            <li class="collection-item">// reduce to 1 line</li>
+            <li class="collection-item">
+            <pre>
+document.addEventListener('click', () =>  console.log('Click'))
+              </pre>
+            </li>
+          </ul>
+      </div>      
+    </div>
+  </div>  
+
+<div class="container text-flow">
+  <div class="row">
+    <div class="col s12 text-align-center">
+      <h2>About this context scope</h2>
+    </div> 
+    <div class="row">
+      <div class="col s12 m6">
+    <pre>
+class Person{
+  constructor(name) {
+    <b>this</b>.name = name
+  }
+
+  printNameArrow(){
+    setTimeout(() => {
+      console.log('Arrow: ' + <b>this</b>.name)
+    }, 100)
+  }
+
+  printNameFunction() {
+    setTimeout(function () {
+      console.log('Function: ' + <b>this</b>.name)
+    }, 100)
+  }
+}
+
+let person = new Person('Bob')
+person.printNameArrow()
+person.printNameFunction()      
+    </pre>
+      </div>
+        <div class="col s12 m6 black white-text">
+          <h3>Console</h3>
+          <div class="divider"></div>
+            <ul class="collection">
+              <li class="collection-item black white-text">  Arrow: Bob</li>
+              <li class="collection-item black white-text">  Function: </li>
+            </ul>
+        </div> 
+    </div>   
+  </div>
+</div>  
+
+  <script src="index2.js"></script>
+</body>
+</html>
